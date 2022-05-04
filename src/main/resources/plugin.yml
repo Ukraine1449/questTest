@@ -1,0 +1,4 @@
+name: QuestsTest
+version: '${project.version}'
+main: com.github.ukraine1449.queststest.QuestsTest
+authors: [ Ukraine1449 ]

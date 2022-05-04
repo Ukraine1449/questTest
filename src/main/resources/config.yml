@@ -1,0 +1,8 @@
+command-to-be-run:
+MongoDB:
+  host: 'localhost'
+  port: 27017
+  database: 'testDB'
+  collection: 'quests'
+distanceToWalk: 500
+EnchantAchievementLevel: 1
