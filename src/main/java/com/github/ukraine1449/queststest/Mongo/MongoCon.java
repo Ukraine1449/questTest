@@ -16,7 +16,8 @@ public class MongoCon {
     public void insertToDB(DBObject dbo){
         collection.insert(dbo);
     }
-    public void loadFromDB(){
-
+    public DBCursor loadFromDB(DBObject query){
+        DBCursor cursor = collection.find(query);
+        return cursor;
     }
 }
