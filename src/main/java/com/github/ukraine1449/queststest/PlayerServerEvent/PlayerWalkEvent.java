@@ -1,5 +1,6 @@
 package com.github.ukraine1449.queststest.PlayerServerEvent;
 
+import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
@@ -21,7 +22,8 @@ public class PlayerWalkEvent implements Listener {
             Integer meterWalk = plugin.getConfig().getInt("distanceToWalk");
             Player player = e.getPlayer();
             if(player.getStatistic(Statistic.WALK_ONE_CM) / 100 >= meterWalk){
-                //TODO do achievement
+                CachedPlayer cp = CachedPlayer.get(player);
+                cp.updateDB(1, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("distanceToWalk"), "hiker");
             }
         }
     }

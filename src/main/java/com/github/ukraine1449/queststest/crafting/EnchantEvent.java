@@ -1,8 +1,10 @@
 package com.github.ukraine1449.queststest.crafting;
 
+import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -24,7 +26,8 @@ QuestsTest plugin;
         ItemMeta meta = event.getItem().getItemMeta();
         if(Objects.equals(event.getItem(), new ItemStack(Material.DIAMOND_SWORD)) && meta.hasEnchant(Enchantment.DAMAGE_ALL)){
             if(meta.getEnchantLevel(Enchantment.DAMAGE_ALL) == plugin.getConfig().getInt("EnchantAchievementLevel")){
-                //TODO Do achievement logic
+                CachedPlayer cp = CachedPlayer.get(event.getEnchanter());
+                cp.updateDB(7, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("Enchantment-count"), "weapon enchanting");
             }
         }
     }

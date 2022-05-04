@@ -5,10 +5,16 @@ MongoDB:
   database: 'testDB'
   collection: 'quests'
 distanceToWalk: 500
-EnchantAchievementLevel: 1
+EnchantAchievementLevel: 1 #How many levels of sharpness you have to enchant your sword
+Enchantment-count: 1
 BlockRemoveAchievementCount: 50
 BlockPlaceAchievementCount: 50
 #Place holders:
 #%achivement%
 #%player%
 Achivement-message: 'Congratulations %player%, you just finished the %achivement% achivement'
+Supposed-potions: 1
+Supposed-compass: 1
+Cow-kills: 10
+Fish-caught: 30
+Gapples-eaten: 20

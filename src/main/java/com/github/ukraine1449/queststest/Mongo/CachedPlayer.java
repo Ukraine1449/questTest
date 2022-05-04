@@ -58,4 +58,15 @@ public class CachedPlayer {
         progress.add((Integer) cursor.one().get("Enchanted"));
         progress.add((Integer) cursor.one().get("Compass"));
     }
+    public void updateDB(Integer place, String msg, Integer supposed, String ach){
+        Integer tbd = progress.get(place)+1;
+        progress.set(place, tbd);
+        if(tbd.equals(supposed)){
+            if(msg != null) {
+                msg = msg.replace("%player%", player.getName());
+                msg = msg.replace("%achivement%", ach);
+            }
+            player.sendMessage(msg);
+        }
+    }
 }

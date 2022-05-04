@@ -1,5 +1,6 @@
 package com.github.ukraine1449.queststest.PlayerServerEvent;
 
+import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -19,7 +20,8 @@ public class AppleEating implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onGappleEat(PlayerItemConsumeEvent event){
         if(Objects.equals(event.getItem(), new ItemStack(Material.GOLDEN_APPLE))){
-            //TODO Do achivement stuff
+            CachedPlayer cp = CachedPlayer.get(event.getPlayer());
+            cp.updateDB(5, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("Gapples-eaten"), "Gapple coneseour");
         }
     }
 }
