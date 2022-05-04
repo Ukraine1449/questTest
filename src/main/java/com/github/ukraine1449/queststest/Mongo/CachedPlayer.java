@@ -21,9 +21,11 @@ public class CachedPlayer {
     public static CachedPlayer get(Player p) {
         return map.get(p);
     }
+
     public CachedPlayer remove(Player p) {
         return map.remove(p);
     }
+
     public void loadToDB(){
         if(!progress.isEmpty()){
             MongoCon mc = new MongoCon();

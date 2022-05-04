@@ -6,3 +6,5 @@ MongoDB:
   collection: 'quests'
 distanceToWalk: 500
 EnchantAchievementLevel: 1
+BlockRemoveAchievementCount: 50
+BlockPlaceAchievementCount: 50
