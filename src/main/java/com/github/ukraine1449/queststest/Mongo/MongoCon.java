@@ -17,7 +17,6 @@ public class MongoCon {
         collection.insert(dbo);
     }
     public DBCursor loadFromDB(DBObject query){
-        DBCursor cursor = collection.find(query);
-        return cursor;
+        return collection.find(query);
     }
 }

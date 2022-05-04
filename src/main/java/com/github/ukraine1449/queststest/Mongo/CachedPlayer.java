@@ -1,17 +1,28 @@
 package com.github.ukraine1449.queststest.Mongo;
 
+import com.avaje.ebean.validation.NotNull;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CachedPlayer {
     public ArrayList<Integer> progress = new ArrayList<Integer>();
     public Player player;
+    public static Map<Player, CachedPlayer> map = new HashMap<>();
     public CachedPlayer(Player p){
         p = player;
+        map.put(p, this);
+    }
+    public static CachedPlayer get(Player p) {
+        return map.get(p);
+    }
+    public CachedPlayer remove(Player p) {
+        return map.remove(p);
     }
     public void loadToDB(){
         if(!progress.isEmpty()){
