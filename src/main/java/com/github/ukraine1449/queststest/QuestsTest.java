@@ -19,3 +19,9 @@ public ArrayList<Player> onlinePlayers = new ArrayList<>();
         // Plugin shutdown logic
     }
 }
+//TODO Make on disable
+//TODO Make GUI
+//TODO Make Menu handler
+//TODO Register events
+//TODO Make /quests command
+//TODO Make command execute (look in ticket)
