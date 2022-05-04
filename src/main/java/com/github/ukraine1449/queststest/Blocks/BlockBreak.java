@@ -19,6 +19,15 @@ public class BlockBreak implements Listener {
     public void onBlockBreak(BlockBreakEvent event){
         Player player = event.getPlayer();
         CachedPlayer cp = CachedPlayer.get(player);
-        cp.progress.set(3, cp.progress.get(3)+1);
+        Integer broken = cp.progress.get(3)+1;
+        cp.progress.set(3, broken);
+        if(broken == plugin.getConfig().getInt("BlockRemoveAchievementCount")){
+            String msg = plugin.getConfig().getString("Achivement-message");
+            if(msg != null) {
+                msg = msg.replace("%player%", player.getName());
+                msg = msg.replace("%achivement%", "Block breaking");
+            }
+            player.sendMessage(msg);
+        }
     }
 }

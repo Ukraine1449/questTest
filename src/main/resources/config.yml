@@ -8,3 +8,7 @@ distanceToWalk: 500
 EnchantAchievementLevel: 1
 BlockRemoveAchievementCount: 50
 BlockPlaceAchievementCount: 50
+#Place holders:
+#%achivement%
+#%player%
+Achivement-message: 'Congratulations %player%, you just finished the %achivement% achivement'
