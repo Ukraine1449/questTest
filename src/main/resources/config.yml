@@ -1,4 +1,4 @@
-command-to-be-run:
+command-to-be-run: /help
 MongoDB:
   host: 'localhost'
   port: 27017

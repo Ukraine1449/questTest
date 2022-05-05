@@ -2,7 +2,9 @@ package com.github.ukraine1449.queststest.PlayerServerEvent;
 
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
+import org.bukkit.Bukkit;
 import org.bukkit.Statistic;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -24,6 +26,7 @@ public class PlayerWalkEvent implements Listener {
             if(player.getStatistic(Statistic.WALK_ONE_CM) / 100 >= meterWalk){
                 CachedPlayer cp = CachedPlayer.get(player);
                 cp.updateDB(1, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("distanceToWalk"), "hiker");
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), plugin.getConfig().getString("command-to-be-run"));
             }
         }
     }

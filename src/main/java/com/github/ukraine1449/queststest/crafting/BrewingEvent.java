@@ -2,6 +2,7 @@ package com.github.ukraine1449.queststest.crafting;
 
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,6 +34,7 @@ public class BrewingEvent implements Listener {
             if(pm.getCustomEffects().contains(PotionType.STRENGTH)){
                 CachedPlayer cp = CachedPlayer.get((Player) event.getContents().getViewers().get(0));
                 cp.updateDB(6, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("Supposed-potions"), "Strength incoming");
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), plugin.getConfig().getString("command-to-be-run"));
             }
         }
     }

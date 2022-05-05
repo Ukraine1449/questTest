@@ -2,6 +2,7 @@ package com.github.ukraine1449.queststest.Blocks;
 
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -19,15 +20,8 @@ public class BlockBreak implements Listener {
     public void onBlockBreak(BlockBreakEvent event){
         Player player = event.getPlayer();
         CachedPlayer cp = CachedPlayer.get(player);
-        Integer broken = cp.progress.get(3)+1;
-        cp.progress.set(3, broken);
-        if(broken == plugin.getConfig().getInt("BlockRemoveAchievementCount")){
-            String msg = plugin.getConfig().getString("Achivement-message");
-            if(msg != null) {
-                msg = msg.replace("%player%", player.getName());
-                msg = msg.replace("%achivement%", "Block breaking");
-            }
-            player.sendMessage(msg);
-        }
+        cp.updateDB(3, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("BlockRemoveAchievementCount"), "block breaker");
+        Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), plugin.getConfig().getString("command-to-be-run"));
     }
 }
+//

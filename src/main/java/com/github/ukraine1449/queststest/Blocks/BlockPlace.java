@@ -2,6 +2,7 @@ package com.github.ukraine1449.queststest.Blocks;
 
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -20,15 +21,7 @@ public class BlockPlace implements Listener {
         public void onBlockPlace(BlockPlaceEvent event){
             Player player = event.getPlayer();
             CachedPlayer cp = CachedPlayer.get(player);
-            Integer placed = cp.progress.get(4)+1;
-            cp.progress.set(4, placed);
-            if(placed == plugin.getConfig().getInt("BlockPlaceAchievementCount")){
-                String msg = plugin.getConfig().getString("Achivement-message");
-                if(msg != null) {
-                    msg = msg.replace("%player%", player.getName());
-                    msg = msg.replace("%achivement%", "Block placing");
-                }
-                player.sendMessage(msg);
-            }
+        cp.updateDB(4, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("BlockPlaceAchievementCount"), "block placer");
+        Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), plugin.getConfig().getString("command-to-be-run"));
         }
 }

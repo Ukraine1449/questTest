@@ -2,6 +2,7 @@ package com.github.ukraine1449.queststest.MobInteractions;
 
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -20,6 +21,6 @@ public class Fishing implements Listener {
         Player player = event.getPlayer();
         CachedPlayer cp = CachedPlayer.get(player);
         cp.updateDB(2, plugin.getConfig().getString("Achivement-message"), plugin.getConfig().getInt("Fish-caught"), "Fisherman");
-
+        Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), plugin.getConfig().getString("command-to-be-run"));
     }
 }
