@@ -26,7 +26,7 @@ QuestsTest plugin;
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if(commandSender instanceof Player){
             Player player = (Player) commandSender;
-            Inventory inv = Bukkit.createInventory(player, 9, ChatColor.BLUE+"QuestProgress");
+            Inventory inv = Bukkit.createInventory(player, 9, ChatColor.BLUE+"Quest Progress");
             CachedPlayer cp = CachedPlayer.get(player);
             inv.addItem(createItemStack(Material.RAW_BEEF, "Cow killing progress", cp.progress.get(0) + " Cows killed out of " + plugin.getConfig().getInt("Cow-kills")));
             inv.addItem(createItemStack(Material.RAW_BEEF, "Walking progress", cp.progress.get(1) + " meters walked out of " + plugin.getConfig().getInt("distanceToWalk")));

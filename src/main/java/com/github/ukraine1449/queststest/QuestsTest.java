@@ -2,6 +2,7 @@ package com.github.ukraine1449.queststest;
 
 import com.github.ukraine1449.queststest.Blocks.BlockBreak;
 import com.github.ukraine1449.queststest.Blocks.BlockPlace;
+import com.github.ukraine1449.queststest.Commands.Quest;
 import com.github.ukraine1449.queststest.MobInteractions.CowKills;
 import com.github.ukraine1449.queststest.MobInteractions.Fishing;
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
@@ -27,7 +28,7 @@ public MongoCon mongoConnection;
         instance = this;
         saveDefaultConfig();
         loadMongo();
-        //getCommand("minionconfig").setExecutor(new configGUIOpen(this));
+        getCommand("quests").setExecutor(new Quest(this));
         getServer().getPluginManager().registerEvents(new BlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new BlockPlace(this), this);
         getServer().getPluginManager().registerEvents(new BrewingEvent(this), this);
@@ -57,6 +58,4 @@ public MongoCon mongoConnection;
         }
     }
 }
-//TODO Make GUI
 //TODO Make Menu handler
-// TODO Make /quests command
