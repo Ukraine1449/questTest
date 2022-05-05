@@ -1,6 +1,7 @@
 package com.github.ukraine1449.queststest.Mongo;
 
 import com.avaje.ebean.validation.NotNull;
+import com.github.ukraine1449.queststest.QuestsTest;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
@@ -28,7 +29,7 @@ public class CachedPlayer {
 
     public void loadToDB(){
         if(!progress.isEmpty()){
-            MongoCon mc = new MongoCon();
+            MongoCon mc = QuestsTest.instance.mongoConnection;
             DBObject dbo = new BasicDBObject("_id", player.getUniqueId())
                     .append("Cows", progress.get(0))
                     .append("Walked", progress.get(1))
@@ -46,7 +47,7 @@ public class CachedPlayer {
     }
     public void loadFromDB(){
         DBObject query = new BasicDBObject("_id", player.getUniqueId());
-        MongoCon mc = new MongoCon();
+        MongoCon mc = QuestsTest.instance.mongoConnection;
         DBCursor cursor = mc.loadFromDB(query);
         progress.add((Integer) cursor.one().get("Cows"));
         progress.add((Integer) cursor.one().get("Walked"));

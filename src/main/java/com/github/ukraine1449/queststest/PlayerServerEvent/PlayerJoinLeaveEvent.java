@@ -9,10 +9,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-public class playerJoinLeaveEvent implements Listener {
+public class PlayerJoinLeaveEvent implements Listener {
 QuestsTest plugin;
 
-    public playerJoinLeaveEvent(QuestsTest plugin) {
+    public PlayerJoinLeaveEvent(QuestsTest plugin) {
         this.plugin = plugin;
     }
 
