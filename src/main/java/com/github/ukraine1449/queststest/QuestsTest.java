@@ -59,5 +59,4 @@ public MongoCon mongoConnection;
 }
 //TODO Make GUI
 //TODO Make Menu handler
-//TODO Register events
-//TODO Make /quests command
+// TODO Make /quests command
