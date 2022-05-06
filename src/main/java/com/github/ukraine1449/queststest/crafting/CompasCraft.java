@@ -2,9 +2,7 @@ package com.github.ukraine1449.queststest.crafting;
 
 import com.github.ukraine1449.queststest.Mongo.CachedPlayer;
 import com.github.ukraine1449.queststest.QuestsTest;
-import org.apache.logging.log4j.core.net.Priority;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
